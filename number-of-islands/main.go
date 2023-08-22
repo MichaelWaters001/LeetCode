@@ -12,11 +12,11 @@ func main() {
 
 func numIslands(grid [][]byte) int {
 	islandCount := 0
-	for y := range grid{
-		for x := range grid[y]{
-			if grid[y][x] == 1{
+	for x, row := range grid{
+		for y, cell := range row{
+			if cell == '1'{
 				islandCount++
-				crawlIsland(grid, y, x)
+				crawlIsland(grid, x, y)
 			}
 		}
 	}
@@ -24,23 +24,23 @@ func numIslands(grid [][]byte) int {
 }
 
 //mark all adjacent land
-func crawlIsland(grid [][]byte, y int, x int){
+func crawlIsland(grid [][]byte, x int, y int){
 	
 	//return if out of bounds of grid
-	if ( y < 0 || y >= len(grid) || x < 0 || x >= len(grid[y])){
+	if ( x < 0 || x >= len(grid) || y < 0 || y >= len(grid[x]) ){
 		return
 	}
 
 	//return if on water
-	if grid[y][x] == 0{
+	if grid[x][y] == '0'{
 		return
 	}
 
 	//mark as water so we don't count it again
-	grid[y][x]=0
+	grid[x][y]='0'
 
-	crawlIsland(grid, y, x-1)
-	crawlIsland(grid, y, x+1)
-	crawlIsland(grid, y-1, x)
-	crawlIsland(grid, y+1, x)
+	crawlIsland(grid, x-1, y)
+	crawlIsland(grid, x+1, y)
+	crawlIsland(grid, x, y-1)
+	crawlIsland(grid, x, y+1)
 }
