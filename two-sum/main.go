@@ -1,5 +1,9 @@
 package main
 
+
+func main(){
+	return
+}
 //https://leetcode.com/problems/two-sum/description/
 
 func twoSum(nums []int, target int) []int {
