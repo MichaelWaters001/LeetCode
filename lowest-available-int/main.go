@@ -8,18 +8,18 @@ func main() {
 }
 
 func Solution(A []int) int {
-    sort.Ints(A)
+	sort.Ints(A)
 	low := 1
-	for _, num := range A{
+	for _, num := range A {
 		//skip past negative values
-		if num < 1{
+		if num < 1 {
 			continue
 		}
 
-		if low < num{
+		if low < num {
 			return low
 		}
-		low = num+1
+		low = num + 1
 	}
 	return low
 }
