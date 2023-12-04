@@ -5,7 +5,6 @@ import "testing"
 func TestSolution(t *testing.T) {
 	type args struct {
 		A int
-		B int
 	}
 	tests := []struct {
 		name string
@@ -15,15 +14,35 @@ func TestSolution(t *testing.T) {
 		{
 			name: "sample",
 			args: args{
-				A: 1,
-				B: 2,
+				A: 12,
 			},
-			want: 3,
+			want: 12,
+		},
+		{
+			name: "sample1",
+			args: args{
+				A: 123456,
+			},
+			want: 162534,
+		},
+		{
+			name: "sample2",
+			args: args{
+				A: 130,
+			},
+			want: 103,
+		},
+		{
+			name: "mine",
+			args: args{
+				A: 0,
+			},
+			want: 0,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := add(tt.args.A, tt.args.B); got != tt.want {
+			if got := Solution(tt.args.A, ); got != tt.want {
 				t.Errorf("Solution() = %v, want %v", got, tt.want)
 			}
 		})

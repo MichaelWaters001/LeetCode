@@ -1,0 +1,1 @@
+find if valid triangle can be made from array of int
