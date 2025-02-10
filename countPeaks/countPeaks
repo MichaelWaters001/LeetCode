@@ -1,0 +1,18 @@
+package main 
+
+import ()
+
+
+// return count were neighbors are + or - 5 of the peak
+func countPeaks( values []float64) int {
+	peaks := 0
+	for i := 1; i < len(values)-1; i++ {
+		if values[i] > (5 + values[i-1]) && values[i] > (5+values[i+1]) {
+			peaks++
+		}
+		if values[i] < (values[i-1] - 5) && values[i] < (values[i+1] - 5) {
+			peaks++
+		}
+	}
+	return peaks
+}
